@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'DoraemonKit'
-  s.version          = '0.1.0'
+  s.version          = '3.0.2'
   s.summary          = 'A short description of DoraemonKit.'
 
 # This description is used to generate tags and improve search results.
@@ -30,7 +30,18 @@ TODO: Add long description of the pod here.
 
   s.ios.deployment_target = '9.0'
 
-  s.source_files = 'DoraemonKit/Classes/**/*'
+  s.subspec 'WithGPS' do |ss|
+    ss.source_files = 'DoraemonKit/withGPS/*.{h,m}'
+  end
+  s.subspec 'WithLoad' do |ss|
+    ss.source_files = 'DoraemonKit/withLoad/*.{h,m}'
+  end
+  s.subspec 'Core' do |ss|
+    ss.source_files = 'DoraemonKit/Classes/**/*.{h,m}'
+    ss.vendored_library = 'DoraemonKit/Classes/*.a'
+    ss.vendored_frameworks = 'DoraemonKit/Framworks/*.framework'
+    ss.resource = 'DoraemonKit/Assets/*.bundle'
+  end
   
   # s.resource_bundles = {
   #   'DoraemonKit' => ['DoraemonKit/Assets/*.png']

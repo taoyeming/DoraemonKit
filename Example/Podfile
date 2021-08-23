@@ -1,6 +1,0 @@
-use_frameworks!
-target 'DoraemonKit_Tests' do
-  pod 'DoraemonKit', :path => '../'
-  
-  
-end
